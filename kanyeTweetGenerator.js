@@ -134,8 +134,9 @@ async function lookupTweet(number){
 
 app.listen(portNumber); 
 console.log(`Web server started and running at http://localhost:${portNumber}`);
-console.log("Stop to shutdown the server:");
+//console.log("Stop to shutdown the server:");
 process.stdin.setEncoding("utf8");
+/*
 process.stdin.on('readable', () => { 
 	let dataInput = process.stdin.read();
 	if (dataInput !== null) {
@@ -148,6 +149,7 @@ process.stdin.on('readable', () => {
 		}
     }
     
-    process.stdin.resume();
+    //process.stdin.resume();
     console.log("Stop to shutdown the server:");
 });
+*/
