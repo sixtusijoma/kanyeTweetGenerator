@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Tweet</title>
+</head>
+<style>
+    html{
+        background-color:<%=backgroundColor%>
+    }
+    #tweet {
+        position: absolute;
+        top: 32%;
+        left: 37%;
+        right: 50%;
+        bottom: 50%;
+        width: 500px;
+        height: 300px;
+        margin: -50px 0 0 -100px;
+        color: <%=textColor%>;
+        border: <%=borderSize%>px <%=borderStyle%> <%=borderColor%>;
+        font-size: <%=fontSize%>px;
+        background-color:white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    #request{
+        color:white;
+        bottom: 131px;
+        left: 26%;
+        text-shadow: 2px 2px 4px #000000;
+        padding-top: 600px;
+    }
+</style>
+<body>
+    <div id="tweet" >
+        <%- tweet %>
+    </div>
+    <p id="request">Request Number (for lookup purposes): <%-requestNumber%> </p>
+ 
+    
+</body>
+
+</html>

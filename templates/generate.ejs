@@ -1,0 +1,43 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!doctype html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8" />
+	<title>Generate Tweet</title>
+</head>
+
+<body>
+	<h1>Generate Random Kanye Tweet</h1>
+	<form action="/generate" method="post">
+		<fieldset>
+			<label><strong>Text color </strong> <input type="text" name="textColor"  ></label><br><br>
+            <label><strong>Font Size (pixels): </strong> <input type="number" name="size" max="50"/></label><br><br>
+            <label><strong>Background Color:</strong> <input type="text" name="backgroundColor"/></label><br><br>
+            <label><strong>Border color:</strong> <input type="text" name="borderColor"/></label><br><br>
+            <label><strong>Border size (pixels) :</strong> <input type="number" name="borderSize"/></label><br><br>
+		    <label><strong>Border style:</strong></label>
+            <select name="borderStyle">
+                <option value="solid">Solid</option>
+                <option value="double">Double</option>
+                <option value="ridge">Ridge</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="groove">Groove</option>
+                <option value="inset">Inset</option>
+                <option value="outset">Outset</option>
+                <option value="none">None</option>
+              </select>
+        </fieldset>
+        <br>Tip: Use "rgb(x,y,z)" for numbers x,y,z to use specific color values<br>
+
+		<br>
+		<input type="reset" />
+		<input type="submit" value="Get Random Tweet" id="submit"/>
+	</form>
+    <hr>
+    <a href="/"> HOME</a>
+</body>
+
+</html>

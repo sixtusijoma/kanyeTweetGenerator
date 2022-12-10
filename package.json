@@ -1,0 +1,20 @@
+{
+  "name": "kanyetweetgenerator",
+  "version": "1.0.0",
+  "description": "Displays tweets by Kanye West specified by different options from the user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sixtus Ijoma",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "http": "0.0.1-security",
+    "mongodb": "^4.12.1",
+    "node-fetch": "^3.3.0",
+    "path": "^0.12.7"
+  }
+}
