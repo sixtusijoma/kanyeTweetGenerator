@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .\\kanyeTweetGenerator.js"
+    "start": "node kanyeTweetGenerator.js"
   },
   "author": "Sixtus Ijoma",
   "license": "ISC",
