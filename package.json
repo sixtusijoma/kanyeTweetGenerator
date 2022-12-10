@@ -4,7 +4,8 @@
   "description": "Displays tweets by Kanye West specified by different options from the user",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node kanyeTweetGenerator.js"
   },
   "author": "Sixtus Ijoma",
   "license": "ISC",
