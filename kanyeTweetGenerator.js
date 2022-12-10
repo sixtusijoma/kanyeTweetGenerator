@@ -2,7 +2,7 @@
 const express = require("express")
 const app= express();
 const path = require('path');
-const nodeFetch = require("node-fetch");
+const request = require('request');
 const portNumber=  process.env.PORT || 3000;
 require("dotenv").config({ path: path.resolve(__dirname, '.env') })
 const userName = process.env.MONGO_DB_USERNAME;
@@ -69,11 +69,29 @@ app.post("/retrieve", (request, response) => {
     });
 });
 
+const getRequest = (url) => {
+    return new Promise((resolve, reject) => {
+      request.get(url, (error, response, body) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve({ response, body });
+        }
+      });
+    });
+  }
 
 async function generateTweet(){
-    let tweetResult= await nodeFetch(kanyeAPI);
-    tweet=await tweetResult.json();
+    let tweet;
+    await getRequest(kanyeAPI)
+    .then(result => {
+      return  result.body;}).then(tweetResult=>{
+        tweet=tweetResult;
+      })
+   
+   tweet= await JSON.parse(tweet);
     return await tweet.quote;
+    
 }
 async function insertTweet(tweetInfo){
     try{
