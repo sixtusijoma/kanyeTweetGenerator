@@ -2,19 +2,15 @@
 const express = require("express")
 const app= express();
 const path = require('path');
-const request = require('request');
 const portNumber=  process.env.PORT || 3000;
 require("dotenv").config({ path: path.resolve(__dirname, '.env') })
-const userName = process.env.MONGO_DB_USERNAME;
-const password = process.env.MONGO_DB_PASSWORD;
 const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection:process.env.MONGO_COLLECTION };
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${userName}:${password}@cluster0.example.mongodb.net/?retryWrites=true&w=majority`;
+const uri = process.env.MONGO_DB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-const bodyParser= require('body-parser');
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 let kanyeAPI="https://api.kanye.rest/"
 app.get("/", (request, response) => { 
     response.render("index");
@@ -65,33 +61,15 @@ app.post("/retrieve", (request, response) => {
             response.write(`<h2>Error: Request Number not found!</h2><br><br> It is likely the case that a tweet with this request
             number has not been created yet.<br> `);
             response.write(`<br><br><a href="/"> HOME</a>`);
+            response.end();
         }
     });
 });
 
-const getRequest = (url) => {
-    return new Promise((resolve, reject) => {
-      request.get(url, (error, response, body) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve({ response, body });
-        }
-      });
-    });
-  }
-
 async function generateTweet(){
-    let tweet;
-    await getRequest(kanyeAPI)
-    .then(result => {
-      return  result.body;}).then(tweetResult=>{
-        tweet=tweetResult;
-      })
-   
-   tweet= await JSON.parse(tweet);
-    return await tweet.quote;
-    
+    let tweetResult= await fetch(kanyeAPI);
+    let tweet= await tweetResult.json();
+    return tweet.quote;
 }
 async function insertTweet(tweetInfo){
     try{
@@ -99,8 +77,6 @@ async function insertTweet(tweetInfo){
         await client.db(databaseAndCollection.db).collection(databaseAndCollection.collection).insertOne(tweetInfo);
     } catch (e) {
         console.error(e);
-    } finally {
-        await client.close();
     }
 
 }
@@ -111,8 +87,6 @@ async function getRequestNumber(){
         return await client.db(databaseAndCollection.db).collection(databaseAndCollection.collection).countDocuments({});
     } catch (e) {
         console.error(e);
-    } finally {
-        await client.close();
     }
 }
 
@@ -126,8 +100,6 @@ async function lookupTweet(number){
     return result; 
     } catch (e) {
         console.error(e);
-    } finally {
-        await client.close();
     }
 }
 
