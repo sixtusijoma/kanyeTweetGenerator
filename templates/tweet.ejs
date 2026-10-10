@@ -4,36 +4,37 @@
 
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Tweet</title>
 </head>
 <style>
     html{
         background-color:<%=backgroundColor%>
     }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15vh;
+    }
     #tweet {
-        position: absolute;
-        top: 32%;
-        left: 37%;
-        right: 50%;
-        bottom: 50%;
         width: 500px;
-        height: 300px;
-        margin: -50px 0 0 -100px;
+        max-width: 90vw;
+        min-height: 300px;
+        padding: 20px;
+        box-sizing: border-box;
         color: <%=textColor%>;
         border: <%=borderSize%>px <%=borderStyle%> <%=borderColor%>;
         font-size: <%=fontSize%>px;
-        background-color:white;
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-
+        text-align: center;
     }
-    #request{
-        color:white;
-        bottom: 131px;
-        left: 26%;
+    #request {
+        color: white;
         text-shadow: 2px 2px 4px #000000;
-        padding-top: 600px;
     }
 </style>
 <body>
