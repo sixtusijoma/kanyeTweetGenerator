@@ -2,6 +2,8 @@
 
 A college project I built for CMSC 335 in December 2022 ([demo video](https://www.youtube.com/watch?v=AT11ElAXS54)). It's a small Node/Express app that pulls a random Kanye West quote from [kanye.rest](https://kanye.rest/) and shows it styled like a tweet, with the text color, font size, background, and border chosen by the user.
 
+**Live:** [kanye-tweet-generator-mvfy.onrender.com](https://kanye-tweet-generator-mvfy.onrender.com) (free Render instance, so the first load after a quiet stretch can take a minute)
+
 ## What it does
 
 - **Generate** (`/generate`): pick the colors (any CSS color, e.g. `rgb(29,161,242)`), font size, and border size/style, then get a random Kanye quote styled your way.
