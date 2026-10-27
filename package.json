@@ -9,6 +9,9 @@
   },
   "author": "Sixtus Ijoma",
   "license": "ISC",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
   "dependencies": {
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",

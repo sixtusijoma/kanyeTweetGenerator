@@ -21,7 +21,7 @@ A college project I built for CMSC 335 in December 2022 ([demo video](https://ww
 
 ## Running it locally
 
-You need Node.js 18+ and a MongoDB database (a free MongoDB Atlas cluster or a local `mongod` both work).
+You need Node.js 24.22.1 or any later 24.x release (pinned in `.node-version` and `package.json` `engines`) and a MongoDB database (a free MongoDB Atlas cluster or a local `mongod` both work).
 
 ```sh
 npm install
